@@ -103,18 +103,18 @@ footer{background:#080f1c;color:var(--text);padding:48px 0 24px;font-size:.9rem}
 <section class="final"><div class="wrap rv"><h2>Ready to Build Stronger?</h2><p>Request a quote today or chat with us directly on WhatsApp.</p><div class="cta"><a class="btn o" href="#quote" style="background:#fff;color:#a84300">Request a Quote</a><a class="btn o waLink" href="#" target="_blank" rel="noopener">Chat on WhatsApp</a></div></div></section>
 
 <section id="contact" class="alt"><div class="wrap"><h2>Contact Us</h2><div class="contact" style="margin-top:28px"><div>
-<p>📍 <b>Address:</b> [Street address placeholder], Karachi, Pakistan</p><p>📞 <b>Phone:</b> <a class="waTel" href="#"></a></p><p>✉️ <b>Email:</b> <a id="mail" href="#">info@yourdomain.com</a> <small>(placeholder)</small></p><p>🕘 <b>Hours:</b> Mon–Sat 9:00 AM – 6:00 PM · Sunday closed</p><p><a class="btn wa waLink" href="#" target="_blank" rel="noopener">WhatsApp Us</a></p></div>
-<div class="map" role="img" aria-label="Map placeholder">🗺️<br>Embedded Google Map placeholder<br>Karachi, Pakistan</div></div></div></section>
+<p>📍 <b>Address:</b> <a class="addressLink" href="https://www.google.com/maps/search/?api=1&amp;query=Khayaban%20e%20Shamsheer%2C%20DHA%20Phase%205%2C%20Karachi" target="_blank" rel="noopener">Khayaban e Shamsheer, DHA Phase 5, Karachi</a></p><p>📞 <b>Phone:</b> <a class="waTel" href="#"></a></p><p>✉️ <b>Email:</b> <a id="mail" class="businessEmail" href="mailto:info@businessinternational.com">info@businessinternational.com</a></p><p>🕘 <b>Hours:</b> Mon–Sat 9:00 AM – 6:00 PM · Sunday closed</p><p><a class="btn wa waLink" href="#" target="_blank" rel="noopener">WhatsApp Us</a></p></div>
+<div class="map"><div><p>📍 Khayaban e Shamsheer, DHA Phase 5, Karachi</p><a class="btn o addressLink" href="https://www.google.com/maps/search/?api=1&amp;query=Khayaban%20e%20Shamsheer%2C%20DHA%20Phase%205%2C%20Karachi" target="_blank" rel="noopener">View on Google Maps</a></div></div></div></div></section>
 </main>
 <footer><div class="wrap"><div class="cols"><div><h3>Business <span style="color:var(--or)">International</span></h3><p style="color:var(--t3)">Trusted steel suppliers in Karachi since 1976.</p><p><a class="waLink" href="#" target="_blank" rel="noopener">💬 WhatsApp</a> · <span title="placeholder">Facebook</span> · <span title="placeholder">LinkedIn</span> · <span title="placeholder">Instagram</span></p></div>
 <div><h3>Quick Links</h3><ul><li><a href="#home">Home</a></li><li><a href="#about">About Us</a></li><li><a href="#products">Products</a></li><li><a href="#quote">Get a Quote</a></li><li><a href="#contact">Contact</a></li></ul></div>
 <div><h3>Categories</h3><ul id="fcat"></ul></div>
-<div><h3>Contact</h3><ul><li>Karachi, Pakistan</li><li><a class="waTel" href="#"></a></li><li>info@yourdomain.com</li></ul></div></div>
+<div><h3>Contact</h3><ul><li><a class="addressLink" href="https://www.google.com/maps/search/?api=1&amp;query=Khayaban%20e%20Shamsheer%2C%20DHA%20Phase%205%2C%20Karachi" target="_blank" rel="noopener">Khayaban e Shamsheer, DHA Phase 5, Karachi</a></li><li><a class="waTel" href="#"></a></li><li><a class="businessEmail" href="mailto:info@businessinternational.com">info@businessinternational.com</a></li></ul></div></div>
 <div class="copy">© <span id="yr"></span> Business International. All rights reserved. · <a href="#" id="pp">Privacy Policy</a></div></div></footer>
 <a id="fw" class="waLink" href="#" target="_blank" rel="noopener" aria-label="Order on WhatsApp">💬</a>
 <script>
 /* ===== EDIT HERE: owner-changeable settings ===== */
-const CONFIG={name:"Business International",whatsapp:"923218223341" /* digits only, country code first */,phoneDisplay:"+92 321 8223341",email:"info@yourdomain.com"};
+const CONFIG={name:"Business International",whatsapp:"923218223341" /* digits only, country code first */,phoneDisplay:"+92 321 8223341",email:"info@businessinternational.com",address:"Khayaban e Shamsheer, DHA Phase 5, Karachi"};
 /* ===== Product data: edit names, specs here (no prices – quotation only) ===== */
 const CATS={sheets:"Sheets & Coils",structural:"Structural Steel",pipes:"Pipes",roofing:"Roofing",custom:"Custom Structures"};
 const P=[
@@ -139,7 +139,7 @@ const P=[
 const wa=t=>"https://wa.me/"+CONFIG.whatsapp+(t?"?text="+encodeURIComponent(t):"");
 document.querySelectorAll(".waLink").forEach(a=>a.href=wa("Hello "+CONFIG.name+", I would like to enquire about steel products."));
 document.querySelectorAll(".waTel").forEach(a=>{a.textContent=CONFIG.phoneDisplay;a.href="tel:+"+CONFIG.whatsapp});
-const mail=document.getElementById("mail");mail.textContent=CONFIG.email;mail.href="mailto:"+CONFIG.email;
+document.querySelectorAll(".businessEmail").forEach(a=>{a.textContent=CONFIG.email;a.href="mailto:"+CONFIG.email});
 document.getElementById("yr").textContent=new Date().getFullYear();
 const $=s=>document.querySelector(s),grid=$("#grid"),pick=$("#pick"),sel=new Set();
 const esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -166,8 +166,9 @@ P.forEach((p,i)=>{
 grid.insertAdjacentHTML("beforeend",`<article class="card rv" data-c="${p[2]}" id="c${i}"><div class="img" role="img" aria-label="${esc(p[0])} – steel product illustration">${p[6]?`<img loading="lazy" alt="${esc(p[0])}" src="${p[6]}">`:art(i)}</div><h3>${esc(p[0])}</h3><div class="full">${esc(p[1])}</div><p>${esc(p[4])}</p><div class="sp"><b>Options:</b> ${esc(p[5])}</div><div class="acts"><button class="btn o sm" data-s="${i}" aria-pressed="false">Select Item</button><button class="btn sm" data-r="${i}">Request Price</button><a class="btn wa sm" target="_blank" rel="noopener" href="${wa("Hello, I want to order: "+p[0]+" ("+p[1]+"). Please share details and quotation.")}">Order on WhatsApp</a></div></article>`);
 pick.insertAdjacentHTML("beforeend",`<label><input type="checkbox" value="${i}"> ${esc(p[0])}</label>`)});
 const fl=$("#filters");["all",...Object.keys(CATS)].forEach(k=>{fl.insertAdjacentHTML("beforeend",`<button data-f="${k}" class="${k=="all"?"on":""}">${k=="all"?"All Products":CATS[k]}</button>`)});
-$("#fcat").innerHTML=Object.values(CATS).map(c=>`<li><a href="#products">${c}</a></li>`).join("");
+$("#fcat").innerHTML=Object.values(CATS).map(c=>`<li><a href="#products" data-category="${Object.keys(CATS).find(k=>CATS[k]===c)}">${c}</a></li>`).join("");
 fl.onclick=e=>{const k=e.target.dataset.f;if(!k)return;fl.querySelectorAll("button").forEach(b=>b.classList.toggle("on",b===e.target));grid.querySelectorAll(".card").forEach(c=>c.style.display=(k=="all"||c.dataset.c==k)?"":"none")};
+$("#fcat").onclick=e=>{const link=e.target.closest("[data-category]");if(link)fl.querySelector(`[data-f="${link.dataset.category}"]`).click()};
 function sync(i,on){on?sel.add(i):sel.delete(i);pick.querySelector(`input[value="${i}"]`).checked=on;const c=$("#c"+i);c.classList.toggle("sel",on);const b=c.querySelector("[data-s]");b.textContent=on?"✓ Selected":"Select Item";b.setAttribute("aria-pressed",on)}
 grid.onclick=e=>{const s=e.target.dataset.s,r=e.target.dataset.r;if(s!==undefined)sync(+s,!sel.has(+s));if(r!==undefined){sync(+r,true);$("#quote").scrollIntoView({behavior:"smooth"});setTimeout(()=>$("#qty").focus({preventScroll:true}),600)}};
 pick.onchange=e=>sync(+e.target.value,e.target.checked);
@@ -178,7 +179,7 @@ const mb=$("#mb"),menu=$("#menu");mb.onclick=()=>{const o=menu.classList.toggle(
 menu.onclick=e=>{if(e.target.tagName=="A"){menu.classList.remove("open");mb.textContent="☰";mb.setAttribute("aria-expanded",false)}};
 $("#why".replace("#","#")+"g").innerHTML=[["🏆","High-Quality Steel Products","Tested, graded material from trusted mills."],["💰","Competitive Pricing","Fair, market-based quotations."],["⚡","Fast Quotation Response","Most quotes within 24 hours."],["🚚","Reliable Delivery","On-time delivery to your site."],["📏","Custom Sizes & Specs","Cut, slit or fabricated to order."],["🔧","Experienced Technical Support","50 years of steel know-how."],["📦","Bulk Order Availability","Volume supply for large projects."],["🤝","Transparent Service","Clear terms, no hidden surprises."]].map(x=>`<div class="box rv"><i>${x[0]}</i><h3>${x[1]}</h3><p>${x[2]}</p></div>`).join("");
 $("#indg").innerHTML=[["🏗️","Construction"],["🛣️","Infrastructure"],["🏭","Manufacturing"],["⚙️","Engineering"],["🏠","Roofing"],["🔥","Fabrication"],["📦","Warehousing"],["🏢","Industrial Projects"]].map(x=>`<div class="rv"><span>${x[0]}</span>${x[1]}</div>`).join("");
-$("#pp").onclick=e=>{e.preventDefault();alert("Privacy Policy: placeholder. Replace with your own policy. We use the details you submit only to prepare your quotation.")};
+$("#pp").onclick=e=>{e.preventDefault();alert("Your quote details are assembled in your browser. When you submit a valid request, WhatsApp opens with those details for you to review and send. This page does not send the quote automatically. Your theme preference is stored in this browser. WhatsApp and Google Maps have their own privacy policies.")};
 const f=$("#qf"),msg=$("#msg");
 function bad(el,t){el.classList.add("bad");const s=el.nextElementSibling;if(s)s.textContent=t}
 f.onsubmit=e=>{e.preventDefault();let ok=true;f.querySelectorAll(".bad").forEach(x=>x.classList.remove("bad"));f.querySelectorAll(".err").forEach(x=>x.textContent="");msg.className="";
